@@ -5,11 +5,8 @@ import UserProfilePage from "../support/pageObject/userProfilePage.js";
 import ArticlePage from "../support/pageObject/ArticlePage.js";
 import CreatedArticlePage from "../support/pageObject/CreatedArticlePage.js";
 
-describe("Article page", () => {
+describe.only("Article page (not logged in user)", () => {
   beforeEach(() => {
-    cy.fixture("user.json").then(({ login, password }) => {
-      cy.loginAPI(login, password);
-    });
     cy.visit(Cypress.env("url")).then(() => {
       HomePage.clickGlobalFeedTab();
       HomePage.clickArticleReadMoreBtn();
@@ -19,6 +16,18 @@ describe("Article page", () => {
   it("displays article page", () => {
     cy.url().should("include", "/article/");
     ArticlePage.followUserBtn.should("be.visible");
+  });
+});
+
+describe.only("Article page (logged in user)", () => {
+  beforeEach(() => {
+    cy.fixture("user.json").then(({ secondLogin, secondPassword }) => {
+      cy.loginAPI(secondLogin, secondPassword);
+    });
+    cy.visit(Cypress.env("url")).then(() => {
+      HomePage.clickGlobalFeedTab();
+      HomePage.clickArticleReadMoreBtn();
+    });
   });
 
   it("has follow/unfollow functional button", () => {
@@ -40,7 +49,7 @@ describe("Article page", () => {
     });
   });
 
-  it.only("allows to add article to favorite", () => {
+  it("allows to add article to favorite", () => {
     ArticlePage.vertifyArticleFavouriteCount();
   });
 });

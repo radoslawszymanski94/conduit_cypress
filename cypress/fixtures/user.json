@@ -1,6 +1,8 @@
 {
   "login": "rszymans@test.pl",
   "password": "rszymans",
+  "secondLogin": "rszymans@tester.pl",
+  "secondPassword": "rszymans",
   "userProfile": {
     "profilePictureUrl": "https://picsum.photos/200/300",
     "username": "rszymans",

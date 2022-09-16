@@ -36,8 +36,8 @@ describe("Home page (logged in user)", () => {
     HomePage.clickGlobalFeedTab();
   });
 
-  it("displays increased like count for article after clicking button", () => {
+  it("displays correct like count for article after clicking button", () => {
     HomePage.clickGlobalFeedTab();
-    HomePage.vertiyArticleLikeCount();
+    HomePage.verifyArticleLikeCount();
   });
 });
