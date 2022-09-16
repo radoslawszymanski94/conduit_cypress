@@ -1,0 +1,15 @@
+{
+  "comment": "Test comment",
+  "newArticle": {
+    "title": "Test article",
+    "about": "Test descritpion of the article",
+    "body": "Test body of the article",
+    "tags": "test"
+  },
+  "editedArticle": {
+    "title": "Test article edited",
+    "about": "Test descritpion of the article edited",
+    "body": "Test body of the article edited",
+    "tags": "edited"
+  }
+}

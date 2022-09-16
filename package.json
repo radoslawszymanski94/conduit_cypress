@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "cypress": "^10.3.1"
+  },
+  "scripts": {
+    "open": "npx cypress open",
+    "all": "npx cypress run",
+    "all:headed": "npm run all -- --headed",
+    "mergeReports": "npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json",
+    "deleteReports": "rm cypress/results/* & rm mochawesome.json",
+    "htmlReport": "npx marge mochawesome.json",
+    "all:report": "npm run deleteReports & npm run all:headed & npm run mergeReports & npm run htmlReport"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
